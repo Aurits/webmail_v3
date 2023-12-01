@@ -65,37 +65,57 @@ class _SettingsPageState extends State<SettingsPage> {
             SettingsSection(
               title: const Text('Account'),
               tiles: <SettingsTile>[
-                SettingsTile.navigation(
-                  leading: const Icon(Icons.language),
-                  title: const Text('Language'),
-                  value: const Text('English'),
-                ),
                 SettingsTile(
-                  leading: const Icon(Icons.color_lens),
-                  title: const Text('Theme'),
+                  leading: const Icon(Icons.person),
+                  title: const Text('Profile'),
                   onPressed: (BuildContext context) {},
                 ),
-                SettingsTile.switchTile(
-                  onToggle: (value) {},
-                  initialValue: true,
-                  leading: const Icon(Icons.format_paint),
-                  title: const Text('Enable custom theme'),
+                SettingsTile(
+                  leading: const Icon(Icons.email),
+                  title: const Text('Email'),
+                  onPressed: (BuildContext context) {},
+                ),
+                SettingsTile(
+                  leading: const Icon(Icons.phone),
+                  title: const Text('Phone'),
+                  onPressed: (BuildContext context) {},
+                ),
+                SettingsTile(
+                  leading: const Icon(Icons.language),
+                  title: const Text('Language'),
+                  onPressed: (BuildContext context) {},
+                ),
+                SettingsTile(
+                  leading: const Icon(Icons.help),
+                  title: const Text('Help'),
+                  onPressed: (BuildContext context) {},
+                ),
+                SettingsTile(
+                  leading: const Icon(Icons.logout),
+                  title: const Text('Logout'),
+                  onPressed: (BuildContext context) {},
                 ),
               ],
             ),
             SettingsSection(
               title: const Text('Security'),
               tiles: <SettingsTile>[
-                SettingsTile.navigation(
-                  leading: const Icon(Icons.language),
-                  title: const Text('Language'),
-                  value: const Text('English'),
+                SettingsTile(
+                  leading: const Icon(Icons.lock),
+                  title: const Text('Change Password'),
+                  onPressed: (BuildContext context) {},
                 ),
                 SettingsTile.switchTile(
                   onToggle: (value) {},
+                  leading: const Icon(Icons.fingerprint),
+                  title: const Text('Enable fingerprint'),
+                  initialValue: false,
+                ),
+                SettingsTile.switchTile(
+                  onToggle: (value) {},
+                  leading: const Icon(Icons.lock),
+                  title: const Text('Lock app in background'),
                   initialValue: true,
-                  leading: const Icon(Icons.format_paint),
-                  title: const Text('Enable custom theme'),
                 ),
               ],
             ),
