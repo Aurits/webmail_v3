@@ -36,21 +36,29 @@ class _SettingsPageState extends State<SettingsPage> {
             SettingsSection(
               title: const Text('Common'),
               tiles: <SettingsTile>[
-                SettingsTile.navigation(
-                  leading: const Icon(Icons.language),
-                  title: const Text('Language'),
-                  value: const Text('English'),
-                ),
-                SettingsTile(
-                  leading: const Icon(Icons.color_lens),
-                  title: const Text('Theme'),
-                  onPressed: (BuildContext context) {},
+                SettingsTile.switchTile(
+                  onToggle: (value) {},
+                  leading: const Icon(Icons.notifications_active),
+                  title: const Text('Notifications'),
+                  initialValue: true,
                 ),
                 SettingsTile.switchTile(
                   onToggle: (value) {},
+                  leading: const Icon(Icons.speaker_notes),
+                  title: const Text('Sound'),
                   initialValue: true,
-                  leading: const Icon(Icons.format_paint),
-                  title: const Text('Enable custom theme'),
+                ),
+                SettingsTile.switchTile(
+                  onToggle: (value) {},
+                  leading: const Icon(Icons.vibration),
+                  title: const Text('Vibration'),
+                  initialValue: true,
+                ),
+                SettingsTile.switchTile(
+                  onToggle: (value) {},
+                  leading: const Icon(Icons.airplanemode_active),
+                  title: const Text('Airplane Mode'),
+                  initialValue: true,
                 ),
               ],
             ),
