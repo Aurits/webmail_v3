@@ -59,18 +59,24 @@ class EmailDetailPage extends StatelessWidget {
             ExpansionTile(
               title: Row(
                 children: [
-                  const Text(
-                    'From: ',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  Container(),
+                  const SizedBox(width: 8),
                   Text(
                     email.sender,
                     style: const TextStyle(
                       fontSize: 18,
+                      fontWeight: FontWeight.bold,
                     ),
+                  ),
+                  const SizedBox(width: 8),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                  ),
+                  const SizedBox(width: 8),
+                  Icon(
+                    Icons.star_border,
+                    size: 16,
                   ),
                 ],
               ),
