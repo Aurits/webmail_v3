@@ -40,6 +40,14 @@ class EmailDetailPage extends StatelessWidget {
             Container(
               height: 10,
             ),
+            Text(
+              email.subject,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             ExpansionTile(
               title: Text(
                 email.subject,
