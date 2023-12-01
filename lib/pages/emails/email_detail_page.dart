@@ -83,13 +83,16 @@ class EmailDetailPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 8),
-                  Text(
-                    email.replyTo,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width - 280,
+                    child: Text(
+                      email.replyTo,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   const SizedBox(width: 8),
