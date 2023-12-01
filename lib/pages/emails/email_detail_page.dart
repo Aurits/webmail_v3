@@ -153,8 +153,9 @@ class EmailDetailPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        'Date:  ${email.date}',
-                        style: const TextStyle(fontSize: 16),
+                        'Date:  ${email.date},',
+                        style: const TextStyle(
+                            fontSize: 16, color: Colors.redAccent),
                       ),
                       const SizedBox(height: 10),
                     ],
