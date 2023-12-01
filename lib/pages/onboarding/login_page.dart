@@ -21,11 +21,11 @@ class _LoginPageState extends State<LoginPage> {
     super.initState();
   }
 
+  var _obscureText = true;
   User user = User(username: '', password: '');
   final _formKey = GlobalKey<FormBuilderState>();
   @override
   Widget build(BuildContext context) {
-    var obscureText = true;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -99,22 +99,21 @@ class _LoginPageState extends State<LoginPage> {
                         ]),
                         onChanged: (value) => user.password = value.toString(),
                         obscureText:
-                            obscureText, // Use a boolean variable to toggle visibility
+                            _obscureText, // Use a boolean variable to toggle visibility
                         decoration: InputDecoration(
                           labelText: 'Password',
                           prefixIcon: const Icon(Icons.lock),
                           suffixIcon: IconButton(
                             icon: Icon(
-                              obscureText
+                              _obscureText
                                   ? Icons.visibility
-                                  // ignore: dead_code
                                   : Icons.visibility_off,
                               color: Colors.black,
                             ),
                             onPressed: () {
                               setState(() {
-                                obscureText =
-                                    !obscureText; // Toggle the visibility
+                                _obscureText =
+                                    !_obscureText; // Toggle the visibility
                               });
                             },
                           ),
