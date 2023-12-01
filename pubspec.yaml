@@ -52,6 +52,7 @@ flutter_icons:
   adaptive_icon_background: "#ffffff"
   adaptive_icon_foreground: "assets/images/logo.png"
   remove_alpha_ios: true
+  
 
 dev_dependencies:
   flutter_test:
