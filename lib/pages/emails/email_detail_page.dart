@@ -65,8 +65,8 @@ class EmailDetailPage extends StatelessWidget {
             ExpansionTile(
               iconColor: Colors.green,
               collapsedIconColor: Colors.red,
-              collapsedBackgroundColor: Colors.red,
-              backgroundColor: Colors.green,
+              collapsedBackgroundColor: Colors.red[30],
+              backgroundColor: Colors.green[30],
               title: Row(
                 children: [
                   SizedBox(
@@ -107,15 +107,15 @@ class EmailDetailPage extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     border:
-                        Border.all(color: Colors.green), // Set the green border
+                        Border.all(color: Colors.black), // Set the green border
                     borderRadius: BorderRadius.circular(
-                        8.0), // Optional: Set border radius
+                        16.0), // Optional: Set border radius
                   ),
                   padding: const EdgeInsets.all(8.0), // Optional: Set padding
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
                       Text(
                         'From: ${email.replyTo}',
                         style: const TextStyle(fontSize: 16),
@@ -135,7 +135,7 @@ class EmailDetailPage extends StatelessWidget {
                         'Date: ${email.date}',
                         style: const TextStyle(fontSize: 16),
                       ),
-                      const SizedBox(height: 16),
+                      const SizedBox(height: 10),
                     ],
                   ),
                 ),
