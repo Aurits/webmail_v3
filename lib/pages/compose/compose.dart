@@ -34,13 +34,6 @@ class _ComposeEmailState extends State<ComposeEmail> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            //an outline button to show inbox
-            OutlinedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/emails');
-              },
-              child: const Text('Inbox'),
-            ),
             const SizedBox(height: 20),
             const Text(
               'To',
