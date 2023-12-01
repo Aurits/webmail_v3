@@ -37,18 +37,6 @@ class EmailDetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              height: 10,
-            ),
-            Text(
-              email.subject,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 10),
             //an outline button to show inbox
             OutlinedButton(
               onPressed: () {
@@ -62,6 +50,16 @@ class EmailDetailPage extends StatelessWidget {
                     color: Colors.red),
               ),
             ),
+            Text(
+              email.subject,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 10),
+
             ExpansionTile(
               iconColor: Colors.green,
               collapsedIconColor: Colors.red,
