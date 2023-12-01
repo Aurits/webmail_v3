@@ -32,84 +32,87 @@ class _ComposeEmailState extends State<ComposeEmail> {
         ),
       ),
       drawer: const CustomDrawer(),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 20),
-            Text(
-              'To',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.blue, // Adjust color as needed
-              ),
-            ),
-            const SizedBox(height: 10),
-            TextFormField(
-              style: TextStyle(fontSize: 16),
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Enter recipient email address',
-              ),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              'Subject',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.blue, // Adjust color as needed
-              ),
-            ),
-            const SizedBox(height: 10),
-            TextFormField(
-              style: TextStyle(fontSize: 16),
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Enter subject',
-              ),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              'Message',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.blue, // Adjust color as needed
-              ),
-            ),
-            const SizedBox(height: 10),
-            TextFormField(
-              style: TextStyle(fontSize: 16),
-              maxLines: 5,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Enter message',
-              ),
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.green, // Change button color
-                  ),
-                  child: const Text('Send'),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 20),
+              const Text(
+                'To',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black, // Adjust color as needed
                 ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.orange, // Change button color
-                  ),
-                  child: const Text('Save'),
+              ),
+              const SizedBox(height: 10),
+              TextFormField(
+                style: const TextStyle(fontSize: 16),
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Enter recipient email address',
                 ),
-              ],
-            ),
-          ],
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                'Subject',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black, // Adjust color as needed
+                ),
+              ),
+              const SizedBox(height: 10),
+              TextFormField(
+                style: const TextStyle(fontSize: 16),
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Enter subject',
+                ),
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                'Message',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black, // Adjust color as needed
+                ),
+              ),
+              const SizedBox(height: 10),
+              TextFormField(
+                style: const TextStyle(fontSize: 16),
+                maxLines: 5,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Enter message',
+                ),
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green, // Change button color
+                    ),
+                    child: const Text('Send'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.orange, // Change button color
+                    ),
+                    child: const Text('Save'),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
