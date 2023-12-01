@@ -38,33 +38,56 @@ class EmailDetailPage extends StatelessWidget {
             Container(
               height: 10,
             ),
-            Text(
-              email.subject,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+            ExpansionTile(
+              title: Text(
+                email.subject,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              'From: ${email.replyTo}',
-              style: const TextStyle(fontSize: 16),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'To: ${email.receiver}',
-              style: const TextStyle(fontSize: 16),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Reply-To: ${email.replyTo}',
-              style: const TextStyle(fontSize: 16),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Date: ${email.date}',
-              style: const TextStyle(fontSize: 16),
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    border:
+                        Border.all(color: Colors.green), // Set the green border
+                    borderRadius: BorderRadius.circular(
+                        8.0), // Optional: Set border radius
+                  ),
+                  padding: const EdgeInsets.all(8.0), // Optional: Set padding
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      const SizedBox(height: 20),
+                      Text(
+                        'From: ${email.replyTo}',
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'To: ${email.receiver}',
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Reply-To: ${email.replyTo}',
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Date: ${email.date}',
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                      const Divider(),
+                      const SizedBox(height: 16),
+                    ],
+                  ),
+                ),
+              ],
+              onExpansionChanged: (bool expanded) {
+                // Handle expansion state if needed
+              },
             ),
             const Divider(),
             const SizedBox(height: 16),
