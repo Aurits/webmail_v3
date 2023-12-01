@@ -102,11 +102,12 @@ class _LoginPageState extends State<LoginPage> {
                             obscureText, // Use a boolean variable to toggle visibility
                         decoration: InputDecoration(
                           labelText: 'Password',
-                          prefixIcon: Icon(Icons.lock),
+                          prefixIcon: const Icon(Icons.lock),
                           suffixIcon: IconButton(
                             icon: Icon(
                               obscureText
                                   ? Icons.visibility
+                                  // ignore: dead_code
                                   : Icons.visibility_off,
                               color: Colors.black,
                             ),
@@ -117,12 +118,12 @@ class _LoginPageState extends State<LoginPage> {
                               });
                             },
                           ),
-                          labelStyle: TextStyle(color: Colors.black),
-                          border: OutlineInputBorder(
+                          labelStyle: const TextStyle(color: Colors.black),
+                          border: const OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(16.0)),
                           ),
-                          focusedBorder: OutlineInputBorder(
+                          focusedBorder: const OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.black45),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(16.0)),
