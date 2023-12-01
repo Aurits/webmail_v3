@@ -30,6 +30,25 @@ class EmailDetailPage extends StatelessWidget {
           statusBarColor: Colors.black,
           statusBarIconBrightness: Brightness.light,
         ),
+        iconTheme: const IconThemeData(color: Colors.black),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.delete),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.archive),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.mail_outline),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.more_vert),
+          ),
+        ],
       ),
       drawer: const CustomDrawer(),
       body: SingleChildScrollView(
