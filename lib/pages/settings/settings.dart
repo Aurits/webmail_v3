@@ -42,6 +42,7 @@ class _SettingsPageState extends State<SettingsPage> {
               SettingsTile(
                 leading: const Icon(Icons.color_lens),
                 title: const Text('Theme'),
+                description: Text('Dark'),
                 onPressed: (BuildContext context) {},
               ),
               SettingsTile.switchTile(
