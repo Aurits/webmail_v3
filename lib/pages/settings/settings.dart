@@ -1,6 +1,10 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:settings_ui/settings_ui.dart';
+import '../../models/mail.dart';
+import '../../models/user.dart';
 import '../../widgets/drawer.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -95,6 +99,10 @@ class SettingsPage extends StatelessWidget {
                 leading: const Icon(Icons.logout),
                 title: const Text('Logout'),
                 onPressed: (BuildContext context) {
+                  print("Pressed");
+                  Mail.deleteEmails();
+                  //delete user
+                  User.deleteUser();
                   Navigator.pushNamed(context, '/login');
                 },
               ),
