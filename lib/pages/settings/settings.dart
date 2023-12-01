@@ -43,7 +43,6 @@ class _SettingsPageState extends State<SettingsPage> {
               SettingsTile(
                 leading: const Icon(Icons.color_lens),
                 title: const Text('Theme'),
-                description: Text('Dark'),
                 onPressed: (BuildContext context) {},
               ),
               SettingsTile.switchTile(
@@ -55,7 +54,7 @@ class _SettingsPageState extends State<SettingsPage> {
             ],
           ),
           SettingsSection(
-            title: const Text('Common'),
+            title: const Text('Account'),
             tiles: <SettingsTile>[
               SettingsTile.navigation(
                 leading: const Icon(Icons.language),
@@ -65,7 +64,6 @@ class _SettingsPageState extends State<SettingsPage> {
               SettingsTile(
                 leading: const Icon(Icons.color_lens),
                 title: const Text('Theme'),
-                description: Text('Dark'),
                 onPressed: (BuildContext context) {},
               ),
               SettingsTile.switchTile(
@@ -77,7 +75,7 @@ class _SettingsPageState extends State<SettingsPage> {
             ],
           ),
           SettingsSection(
-            title: const Text('Common'),
+            title: const Text('Security'),
             tiles: <SettingsTile>[
               SettingsTile.navigation(
                 leading: const Icon(Icons.language),
