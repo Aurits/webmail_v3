@@ -59,7 +59,23 @@ class EmailDetailPage extends StatelessWidget {
             ExpansionTile(
               title: Row(
                 children: [
-                  Container(),
+                  SizedBox(
+                    width: 50,
+                    height: 50,
+                    child: CircleAvatar(
+                      backgroundColor: _getAvatarColor(email.replyTo),
+                      child: Text(
+                        email.replyTo.isNotEmpty
+                            ? email.replyTo[0].toUpperCase()
+                            : '?', // Display '?' if replyTo is empty
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
+                  ),
                   const SizedBox(width: 8),
                   Text(
                     email.replyTo,
@@ -204,5 +220,16 @@ class EmailDetailPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Color _getAvatarColor(String text) {
+    // A simple function to generate a color based on the text
+    // You can replace this logic with your own color generation algorithm
+    int hash = 0;
+    for (int i = 0; i < text.length; i++) {
+      hash = text.codeUnitAt(i) + ((hash << 5) - hash);
+    }
+    final int finalHash = hash & 0xFFFFFF;
+    return Color(finalHash).withOpacity(1.0);
   }
 }
