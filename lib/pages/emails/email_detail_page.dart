@@ -138,22 +138,22 @@ class EmailDetailPage extends StatelessWidget {
                     children: [
                       const SizedBox(height: 10),
                       Text(
-                        'From: ${email.replyTo}',
+                        'From:  ${email.replyTo}',
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                      const SizedBox(height: 8),
+                      const Text(
+                        'To:  Me',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Reply-To:  ${email.replyTo}',
                         style: const TextStyle(fontSize: 16),
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        'To: ${email.receiver}',
-                        style: const TextStyle(fontSize: 16),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        'Reply-To: ${email.replyTo}',
-                        style: const TextStyle(fontSize: 16),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        'Date: ${email.date}',
+                        'Date:  ${email.date}',
                         style: const TextStyle(fontSize: 16),
                       ),
                       const SizedBox(height: 10),
