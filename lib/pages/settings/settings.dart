@@ -27,13 +27,17 @@ class SettingsPage extends StatelessWidget {
       body: SettingsList(
         sections: [
           SettingsSection(
-            title: const Text('Common'),
+            title: const Text('Common',
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.green,
+                    fontWeight: FontWeight.bold)),
             tiles: <SettingsTile>[
               SettingsTile.switchTile(
                 onToggle: (value) {},
                 leading: const Icon(Icons.notifications_active),
                 title: const Text('Notifications'),
-                initialValue: true,
+                initialValue: false,
               ),
               SettingsTile.switchTile(
                 onToggle: (value) {},
@@ -51,12 +55,16 @@ class SettingsPage extends StatelessWidget {
                 onToggle: (value) {},
                 leading: const Icon(Icons.airplanemode_active),
                 title: const Text('Airplane Mode'),
-                initialValue: true,
+                initialValue: false,
               ),
             ],
           ),
           SettingsSection(
-            title: const Text('Account'),
+            title: const Text('Account',
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.green,
+                    fontWeight: FontWeight.bold)),
             tiles: <SettingsTile>[
               SettingsTile(
                 leading: const Icon(Icons.person),
@@ -86,12 +94,18 @@ class SettingsPage extends StatelessWidget {
               SettingsTile(
                 leading: const Icon(Icons.logout),
                 title: const Text('Logout'),
-                onPressed: (BuildContext context) {},
+                onPressed: (BuildContext context) {
+                  Navigator.pushNamed(context, '/login');
+                },
               ),
             ],
           ),
           SettingsSection(
-            title: const Text('Security'),
+            title: const Text('Security',
+                style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.green,
+                    fontWeight: FontWeight.bold)),
             tiles: <SettingsTile>[
               SettingsTile(
                 leading: const Icon(Icons.lock),
