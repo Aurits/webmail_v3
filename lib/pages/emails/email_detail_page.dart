@@ -50,12 +50,15 @@ class EmailDetailPage extends StatelessWidget {
                     color: Colors.red),
               ),
             ),
-            Text(
-              email.subject,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+            const SizedBox(height: 16),
+            Center(
+              child: Text(
+                email.subject,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             const SizedBox(height: 10),
