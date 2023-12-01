@@ -39,6 +39,11 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: const Text('Language'),
                 value: const Text('English'),
               ),
+              SettingsTile(
+                leading: const Icon(Icons.color_lens),
+                title: const Text('Theme'),
+                onPressed: (BuildContext context) {},
+              ),
               SettingsTile.switchTile(
                 onToggle: (value) {},
                 initialValue: true,
