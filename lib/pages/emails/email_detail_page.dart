@@ -81,7 +81,6 @@ class EmailDetailPage extends StatelessWidget {
                         'Date: ${email.date}',
                         style: const TextStyle(fontSize: 16),
                       ),
-                      const Divider(),
                       const SizedBox(height: 16),
                     ],
                   ),
@@ -91,7 +90,6 @@ class EmailDetailPage extends StatelessWidget {
                 // Handle expansion state if needed
               },
             ),
-            const Divider(),
             const SizedBox(height: 16),
             HtmlWidget(
               // the first parameter (`html`) is required
