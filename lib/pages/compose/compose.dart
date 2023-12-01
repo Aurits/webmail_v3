@@ -100,14 +100,17 @@ class _ComposeEmailState extends State<ComposeEmail> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green, // Change button color
                     ),
-                    child: const Text('Send'),
+                    child: const Text(
+                      'Save draft',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                   ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.orange, // Change button color
+                      backgroundColor: Colors.green, // Change button color
                     ),
-                    child: const Text('Save'),
+                    child: const Text('Send'),
                   ),
                 ],
               ),
