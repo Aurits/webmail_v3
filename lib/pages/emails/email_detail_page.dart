@@ -9,8 +9,10 @@ import '../../widgets/drawer.dart';
 
 class EmailDetailPage extends StatelessWidget {
   final Mail email;
+  // Add a variable to track the expansion state
+  bool isExpanded = false;
 
-  const EmailDetailPage({Key? key, required this.email}) : super(key: key);
+  EmailDetailPage({Key? key, required this.email}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
