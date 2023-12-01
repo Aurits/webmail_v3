@@ -84,10 +84,11 @@ class EmailDetailPage extends StatelessWidget {
                   ),
                   const SizedBox(width: 8),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width - 280,
+                    width: MediaQuery.of(context).size.width - 200,
                     child: Text(
                       email.replyTo,
-                      maxLines: 1,
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         fontSize: 12,
@@ -96,15 +97,6 @@ class EmailDetailPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 8),
-                  const Icon(
-                    Icons.arrow_forward,
-                    size: 16,
-                  ),
-                  const SizedBox(width: 8),
-                  const Icon(
-                    Icons.maximize,
-                    size: 16,
-                  ),
                 ],
               ),
               children: [
