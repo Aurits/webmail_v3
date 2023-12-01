@@ -18,7 +18,10 @@ class _ComposeEmailState extends State<ComposeEmail> {
         title: const Text(
           'Compose',
           style: TextStyle(
-              fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),
+            fontSize: 18,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         backgroundColor: Colors.white,
         elevation: 0,
@@ -29,52 +32,59 @@ class _ComposeEmailState extends State<ComposeEmail> {
         ),
       ),
       drawer: const CustomDrawer(),
-      body: SingleChildScrollView(
+      body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 20),
-            const Text(
+            Text(
               'To',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
+                color: Colors.blue, // Adjust color as needed
               ),
             ),
             const SizedBox(height: 10),
             TextFormField(
-              decoration: const InputDecoration(
+              style: TextStyle(fontSize: 16),
+              decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: 'Enter recipient email address',
               ),
             ),
             const SizedBox(height: 20),
-            const Text(
+            Text(
               'Subject',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
+                color: Colors.blue, // Adjust color as needed
               ),
             ),
             const SizedBox(height: 10),
             TextFormField(
-              decoration: const InputDecoration(
+              style: TextStyle(fontSize: 16),
+              decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: 'Enter subject',
               ),
             ),
             const SizedBox(height: 20),
-            const Text(
+            Text(
               'Message',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
+                color: Colors.blue, // Adjust color as needed
               ),
             ),
             const SizedBox(height: 10),
             TextFormField(
-              decoration: const InputDecoration(
+              style: TextStyle(fontSize: 16),
+              maxLines: 5,
+              decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: 'Enter message',
               ),
@@ -85,10 +95,16 @@ class _ComposeEmailState extends State<ComposeEmail> {
               children: [
                 ElevatedButton(
                   onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.green, // Change button color
+                  ),
                   child: const Text('Send'),
                 ),
                 ElevatedButton(
                   onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.orange, // Change button color
+                  ),
                   child: const Text('Save'),
                 ),
               ],
