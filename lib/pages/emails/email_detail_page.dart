@@ -48,13 +48,19 @@ class EmailDetailPage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 10),
             //an outline button to show inbox
             OutlinedButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: const Text('Back to Inbox'),
+              child: const Text(
+                'Back to Inbox',
+                style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red),
+              ),
             ),
             ExpansionTile(
               title: Row(
@@ -87,13 +93,13 @@ class EmailDetailPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 8),
-                  Icon(
-                    Icons.arrow_forward_ios,
+                  const Icon(
+                    Icons.arrow_forward,
                     size: 16,
                   ),
                   const SizedBox(width: 8),
-                  Icon(
-                    Icons.star_border,
+                  const Icon(
+                    Icons.maximize,
                     size: 16,
                   ),
                 ],
