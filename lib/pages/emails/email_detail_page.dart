@@ -48,6 +48,14 @@ class EmailDetailPage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            const SizedBox(height: 16),
+            //an outline button to show inbox
+            OutlinedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Back to Inbox'),
+            ),
             ExpansionTile(
               title: Row(
                 children: [
