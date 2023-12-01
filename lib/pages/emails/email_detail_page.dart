@@ -63,6 +63,10 @@ class EmailDetailPage extends StatelessWidget {
               ),
             ),
             ExpansionTile(
+              iconColor: Colors.green,
+              collapsedIconColor: Colors.red,
+              collapsedBackgroundColor: Colors.red,
+              backgroundColor: Colors.green,
               title: Row(
                 children: [
                   SizedBox(
