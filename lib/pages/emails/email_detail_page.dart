@@ -5,16 +5,46 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:webmail/utils/database.dart';
 
 import '../../models/mail.dart';
 import '../../widgets/drawer.dart';
 
-class EmailDetailPage extends StatelessWidget {
+class EmailDetailPage extends StatefulWidget {
   final Mail email;
+  const EmailDetailPage({Key? key, required this.email}) : super(key: key);
+
+  @override
+  State<EmailDetailPage> createState() => _EmailDetailPageState();
+}
+
+class _EmailDetailPageState extends State<EmailDetailPage> {
   // Add a variable to track the expansion state
   bool isExpanded = false;
 
-  EmailDetailPage({Key? key, required this.email}) : super(key: key);
+  late String username;
+
+  @override
+  void initState() {
+    super.initState();
+    getUsername();
+  }
+
+  Future<void> getUsername() async {
+    Database db = await Utils.init();
+    List<Map<String, dynamic>> user = await db.query('usersTable');
+
+    if (user.isNotEmpty) {
+      setState(() {
+        username = user[0]['username'];
+      });
+    } else {
+      setState(() {
+        username = 'No user found';
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,10 +101,10 @@ class EmailDetailPage extends StatelessWidget {
                     width: 50,
                     height: 50,
                     child: CircleAvatar(
-                      backgroundColor: _getAvatarColor(email.replyTo),
+                      backgroundColor: _getAvatarColor(widget.email.replyTo),
                       child: Text(
-                        email.replyTo.isNotEmpty
-                            ? email.replyTo[0].toUpperCase()
+                        widget.email.replyTo.isNotEmpty
+                            ? widget.email.replyTo[0].toUpperCase()
                             : '?', // Display '?' if replyTo is empty
                         style: const TextStyle(
                           color: Colors.white,
@@ -88,7 +118,7 @@ class EmailDetailPage extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width - 200,
                     child: Text(
-                      email.replyTo,
+                      widget.email.replyTo,
                       maxLines: 2,
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
@@ -126,7 +156,7 @@ class EmailDetailPage extends StatelessWidget {
                               ),
                             ),
                             TextSpan(
-                              text: extractEmail(email.replyTo),
+                              text: extractEmail(widget.email.replyTo),
                               style: const TextStyle(
                                 fontSize: 12,
                                 color: Colors.black,
@@ -148,7 +178,7 @@ class EmailDetailPage extends StatelessWidget {
                               ),
                             ),
                             TextSpan(
-                              text: extractEmail(email.replyTo),
+                              text: username,
                               style: const TextStyle(
                                 fontSize: 12,
                                 color: Colors.black,
@@ -170,7 +200,7 @@ class EmailDetailPage extends StatelessWidget {
                               ),
                             ),
                             TextSpan(
-                              text: '${email.date},',
+                              text: '${widget.email.date},',
                               style: const TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,
@@ -192,7 +222,7 @@ class EmailDetailPage extends StatelessWidget {
             const SizedBox(height: 26),
             Center(
               child: Text(
-                email.subject,
+                widget.email.subject,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 20,
@@ -203,7 +233,7 @@ class EmailDetailPage extends StatelessWidget {
             const SizedBox(height: 14),
             HtmlWidget(
               // the first parameter (`html`) is required
-              email.message,
+              widget.email.message,
 
               // all other parameters are optional, a few notable params:
 
@@ -248,7 +278,7 @@ class EmailDetailPage extends StatelessWidget {
               //   textStyle: const TextStyle(fontSize: 14),
             ),
             const SizedBox(height: 16),
-            if (email.attachments.isNotEmpty)
+            if (widget.email.attachments.isNotEmpty)
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -260,7 +290,7 @@ class EmailDetailPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  Text(email.attachments),
+                  Text(widget.email.attachments),
                 ],
               ),
             const SizedBox(height: 32),
