@@ -60,8 +60,6 @@ class EmailDetailPage extends StatelessWidget {
 
             IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
 
-            const SizedBox(height: 16),
-
             ExpansionTile(
               iconColor: Colors.green,
               collapsedIconColor: Colors.red,
