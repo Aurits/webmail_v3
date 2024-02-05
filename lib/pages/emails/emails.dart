@@ -110,7 +110,7 @@ class _EmailsPageState extends State<EmailsPage>
           Container(
             padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
             width: double.infinity,
-            color: Colors.red[300],
+            color: Colors.red,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
