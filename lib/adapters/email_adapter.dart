@@ -164,7 +164,11 @@ class _ItemTileState extends State<ItemTile> {
       return Color(finalHash % greenRange).withOpacity(1.0);
     } else {
       // Black range
-      return Color(finalHash % blackRange).withOpacity(1.0);
+      if (blackRange != 0) {
+        return Color(finalHash % blackRange).withOpacity(1.0);
+      } else {
+        return Colors.black;
+      }
     }
   }
 }
