@@ -333,4 +333,16 @@ class _EmailDetailPageState extends State<EmailDetailPage> {
       return '';
     }
   }
+
+  String extractNameFromEmail(String email) {
+    // Find the index of "<" character
+    int index = email.indexOf('<');
+    if (index != -1) {
+      // Extract the substring before "<"
+      return email.substring(0, index).trim();
+    } else {
+      // If "<" character is not found, return the original email
+      return email;
+    }
+  }
 }
