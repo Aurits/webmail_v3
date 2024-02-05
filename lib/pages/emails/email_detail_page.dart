@@ -135,7 +135,7 @@ class EmailDetailPage extends StatelessWidget {
                 // Handle expansion state if needed
               },
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 20),
             Center(
               child: Text(
                 email.subject,
@@ -146,7 +146,7 @@ class EmailDetailPage extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 14),
             HtmlWidget(
               // the first parameter (`html`) is required
               email.message,
