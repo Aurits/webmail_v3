@@ -171,22 +171,29 @@ class _EmailsPageState extends State<EmailsPage>
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Row(
-                          children: [
-                            Expanded(
-                                child: Container(
-                              height: 40,
-                              width: 40,
-                              decoration: BoxDecoration(
-                                color: Colors.black.withOpacity(0.08),
-                                shape: BoxShape.circle,
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            children: [
+                              Container(
+                                height: 40,
+                                width: 40,
+                                decoration: BoxDecoration(
+                                  color: Colors.black.withOpacity(0.08),
+                                  shape: BoxShape.circle,
+                                ),
                               ),
-                            )),
-                            const SizedBox(width: 4),
-                            const Expanded(
-                              child: Skeleton(),
-                            ),
-                          ],
+                              const SizedBox(width: 4),
+                              const Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Skeleton(width: 120),
+                                  SizedBox(height: 4),
+                                  Skeleton(width: 80),
+                                ],
+                              )
+                            ],
+                          ),
                         )
                       ],
                     ),
