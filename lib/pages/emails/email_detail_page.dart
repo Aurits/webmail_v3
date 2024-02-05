@@ -126,7 +126,7 @@ class EmailDetailPage extends StatelessWidget {
                             TextSpan(
                               text: email.replyTo,
                               style: const TextStyle(
-                                fontSize: 16,
+                                fontSize: 10,
                                 color: Colors.black,
                               ),
                             ),
@@ -148,7 +148,7 @@ class EmailDetailPage extends StatelessWidget {
                             TextSpan(
                               text: email.replyTo,
                               style: const TextStyle(
-                                fontSize: 16,
+                                fontSize: 10,
                                 color: Colors.black,
                               ),
                             ),
@@ -170,7 +170,7 @@ class EmailDetailPage extends StatelessWidget {
                             TextSpan(
                               text: '${email.date},',
                               style: const TextStyle(
-                                fontSize: 16,
+                                fontSize: 10,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.redAccent,
                               ),
