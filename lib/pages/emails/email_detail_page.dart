@@ -135,7 +135,7 @@ class EmailDetailPage extends StatelessWidget {
                 // Handle expansion state if needed
               },
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 26),
             Center(
               child: Text(
                 email.subject,
