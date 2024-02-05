@@ -118,7 +118,7 @@ class EmailDetailPage extends StatelessWidget {
                             const TextSpan(
                               text: 'From: ',
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 14,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black,
                               ),
@@ -126,7 +126,7 @@ class EmailDetailPage extends StatelessWidget {
                             TextSpan(
                               text: email.replyTo,
                               style: const TextStyle(
-                                fontSize: 10,
+                                fontSize: 12,
                                 color: Colors.black,
                               ),
                             ),
@@ -138,9 +138,9 @@ class EmailDetailPage extends StatelessWidget {
                         text: TextSpan(
                           children: [
                             const TextSpan(
-                              text: 'Reply-To: ',
+                              text: 'Reply To: ',
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 14,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black,
                               ),
@@ -148,7 +148,7 @@ class EmailDetailPage extends StatelessWidget {
                             TextSpan(
                               text: email.replyTo,
                               style: const TextStyle(
-                                fontSize: 10,
+                                fontSize: 12,
                                 color: Colors.black,
                               ),
                             ),
@@ -162,7 +162,7 @@ class EmailDetailPage extends StatelessWidget {
                             const TextSpan(
                               text: 'Date: ',
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 14,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black,
                               ),
@@ -170,7 +170,7 @@ class EmailDetailPage extends StatelessWidget {
                             TextSpan(
                               text: '${email.date},',
                               style: const TextStyle(
-                                fontSize: 10,
+                                fontSize: 12,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.redAccent,
                               ),
