@@ -1,5 +1,7 @@
 // ignore_for_file: avoid_print, must_be_immutable
 
+import 'dart:core';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
@@ -290,5 +292,15 @@ class EmailDetailPage extends StatelessWidget {
     }
     final int finalHash = hash & 0xFFFFFF;
     return Color(finalHash).withOpacity(1.0);
+  }
+
+  String extractEmail(String content) {
+    RegExp emailRegex = RegExp(r'<([^>]+)>');
+    Match? match = emailRegex.firstMatch(content);
+    if (match != null) {
+      return match.group(1)!;
+    } else {
+      return '';
+    }
   }
 }
