@@ -12,7 +12,7 @@ class Skeleton extends StatelessWidget {
       width: width,
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-          color: Colors.black.withOpacity(0.04),
+          color: Colors.black.withOpacity(0.08),
           borderRadius: const BorderRadius.all(Radius.circular(16))),
     );
   }
@@ -29,7 +29,7 @@ class CircleSkeleton extends StatelessWidget {
       height: size,
       width: size,
       decoration: BoxDecoration(
-        color: Theme.of(context).primaryColor.withOpacity(0.04),
+        color: Theme.of(context).primaryColor.withOpacity(0.08),
         shape: BoxShape.circle,
       ),
     );

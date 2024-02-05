@@ -166,25 +166,24 @@ class _EmailsPageState extends State<EmailsPage>
             ),
           ),
           loading
-              ? const Expanded(
+              ? Expanded(
                   child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        //tell the user what is going on in the background
-                        Skeleton(width: 80),
-                        SizedBox(height: 16 / 2),
-                        Skeleton(),
-                        SizedBox(height: 16 / 2),
-                        Skeleton(),
-                        SizedBox(height: 16 / 2),
                         Row(
                           children: [
                             Expanded(
-                              child: Skeleton(),
-                            ),
-                            SizedBox(width: 16),
-                            Expanded(
+                                child: Container(
+                              height: 40,
+                              width: 40,
+                              decoration: BoxDecoration(
+                                color: Colors.black.withOpacity(0.08),
+                                shape: BoxShape.circle,
+                              ),
+                            )),
+                            const SizedBox(width: 4),
+                            const Expanded(
                               child: Skeleton(),
                             ),
                           ],
