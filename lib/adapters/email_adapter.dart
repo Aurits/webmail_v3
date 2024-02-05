@@ -143,13 +143,28 @@ class _ItemTileState extends State<ItemTile> {
   }
 
   Color _getAvatarColor(String text) {
-    // A simple function to generate a color based on the text
-    // You can replace this logic with your own color generation algorithm
+    // Calculate a hash value based on the text
     int hash = 0;
     for (int i = 0; i < text.length; i++) {
       hash = text.codeUnitAt(i) + ((hash << 5) - hash);
     }
     final int finalHash = hash & 0xFFFFFF;
-    return Color(finalHash).withOpacity(1.0);
+
+    // Define ranges for red, green, and black
+    const int redRange = 0xFF0000;
+    const int greenRange = 0x00FF00;
+    const int blackRange = 0x000000;
+
+    // Determine which range the hash falls into and adjust color accordingly
+    if (finalHash < (redRange + greenRange) ~/ 2) {
+      // Red range
+      return Color(finalHash % redRange).withOpacity(1.0);
+    } else if (finalHash < (greenRange + blackRange) ~/ 2) {
+      // Green range
+      return Color(finalHash % greenRange).withOpacity(1.0);
+    } else {
+      // Black range
+      return Color(finalHash % blackRange).withOpacity(1.0);
+    }
   }
 }
