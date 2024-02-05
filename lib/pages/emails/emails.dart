@@ -165,7 +165,7 @@ class _EmailsPageState extends State<EmailsPage>
               ],
             ),
           ),
-          Container(height: 10),
+          Container(height: 12),
           loading
               ? Expanded(
                   child: Center(
