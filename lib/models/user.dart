@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print, unnecessary_null_comparison
 
 import 'package:sqflite/sqflite.dart';
+
 import '../utils/database.dart';
 
 class User {

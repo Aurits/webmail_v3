@@ -126,7 +126,7 @@ class EmailDetailPage extends StatelessWidget {
                               ),
                             ),
                             TextSpan(
-                              text: extractEmailAndName(email.replyTo),
+                              text: extractEmail(email.replyTo),
                               style: const TextStyle(
                                 fontSize: 12,
                                 color: Colors.black,
@@ -140,7 +140,7 @@ class EmailDetailPage extends StatelessWidget {
                         text: TextSpan(
                           children: [
                             const TextSpan(
-                              text: 'Reply To: ',
+                              text: 'To: ',
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
@@ -299,18 +299,6 @@ class EmailDetailPage extends StatelessWidget {
     Match? match = emailRegex.firstMatch(content);
     if (match != null) {
       return match.group(1)!;
-    } else {
-      return '';
-    }
-  }
-
-  String extractEmailAndName(String content) {
-    RegExp emailAndNameRegex = RegExp(r'<([^>]+)> \(([^)]+)\)');
-    Match? match = emailAndNameRegex.firstMatch(content);
-    if (match != null) {
-      String email = match.group(1)!;
-      String name = match.group(2)!;
-      return '$name <$email>';
     } else {
       return '';
     }
