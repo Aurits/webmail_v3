@@ -173,7 +173,7 @@ class _EmailsPageState extends State<EmailsPage>
                       children: [
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              vertical: 1.0, horizontal: 16.0),
+                              vertical: 3.0, horizontal: 16.0),
                           child: Row(
                             children: [
                               Container(
@@ -197,7 +197,7 @@ class _EmailsPageState extends State<EmailsPage>
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              vertical: 1.0, horizontal: 16.0),
+                              vertical: 3.0, horizontal: 16.0),
                           child: Row(
                             children: [
                               Container(
@@ -221,7 +221,7 @@ class _EmailsPageState extends State<EmailsPage>
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              vertical: 1.0, horizontal: 16.0),
+                              vertical: 3.0, horizontal: 16.0),
                           child: Row(
                             children: [
                               Container(
@@ -245,7 +245,7 @@ class _EmailsPageState extends State<EmailsPage>
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              vertical: 1.0, horizontal: 16.0),
+                              vertical: 3.0, horizontal: 16.0),
                           child: Row(
                             children: [
                               Container(
@@ -269,7 +269,7 @@ class _EmailsPageState extends State<EmailsPage>
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              vertical: 1.0, horizontal: 16.0),
+                              vertical: 3.0, horizontal: 16.0),
                           child: Row(
                             children: [
                               Container(
@@ -293,7 +293,7 @@ class _EmailsPageState extends State<EmailsPage>
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              vertical: 1.0, horizontal: 16.0),
+                              vertical: 3.0, horizontal: 16.0),
                           child: Row(
                             children: [
                               Container(
@@ -317,7 +317,7 @@ class _EmailsPageState extends State<EmailsPage>
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              vertical: 1.0, horizontal: 16.0),
+                              vertical: 3.0, horizontal: 16.0),
                           child: Row(
                             children: [
                               Container(
