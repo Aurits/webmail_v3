@@ -112,20 +112,71 @@ class EmailDetailPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       const SizedBox(height: 10),
-                      Text(
-                        'From:  ${email.replyTo}',
-                        style: const TextStyle(fontSize: 16),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            const TextSpan(
+                              text: 'From: ',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                            TextSpan(
+                              text: email.replyTo,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       const SizedBox(height: 8),
-                      Text(
-                        'Reply-To:  ${email.replyTo}',
-                        style: const TextStyle(fontSize: 16),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            const TextSpan(
+                              text: 'Reply-To: ',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                            TextSpan(
+                              text: email.replyTo,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       const SizedBox(height: 8),
-                      Text(
-                        'Date:  ${email.date},',
-                        style: const TextStyle(
-                            fontSize: 16, color: Colors.redAccent),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            const TextSpan(
+                              text: 'Date: ',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                            TextSpan(
+                              text: '${email.date},',
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.redAccent,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       const SizedBox(height: 10),
                     ],
