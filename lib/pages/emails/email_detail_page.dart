@@ -56,9 +56,9 @@ class EmailDetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            //an outline button to show inbox
-
-            IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
+            // IconButton(
+            //     onPressed: () {},
+            //     icon: const Icon(Icons.arrow_back_ios_rounded)),
 
             ExpansionTile(
               iconColor: Colors.green,
