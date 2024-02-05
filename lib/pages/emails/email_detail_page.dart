@@ -56,10 +56,6 @@ class EmailDetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // IconButton(
-            //     onPressed: () {},
-            //     icon: const Icon(Icons.arrow_back_ios_rounded)),
-
             ExpansionTile(
               iconColor: Colors.green,
               collapsedIconColor: Colors.red,
@@ -150,7 +146,7 @@ class EmailDetailPage extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 16),
             HtmlWidget(
               // the first parameter (`html`) is required
               email.message,
