@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../models/mail.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 
+import '../../models/mail.dart';
 import '../../widgets/drawer.dart';
 
 class EmailDetailPage extends StatelessWidget {
@@ -140,11 +140,6 @@ class EmailDetailPage extends StatelessWidget {
                       Text(
                         'From:  ${email.replyTo}',
                         style: const TextStyle(fontSize: 16),
-                      ),
-                      const SizedBox(height: 8),
-                      const Text(
-                        'To:  Me',
-                        style: TextStyle(fontSize: 16),
                       ),
                       const SizedBox(height: 8),
                       Text(
