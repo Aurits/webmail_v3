@@ -172,7 +172,8 @@ class _EmailsPageState extends State<EmailsPage>
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(16.0),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 1.0, horizontal: 16.0),
                           child: Row(
                             children: [
                               Container(
@@ -195,7 +196,8 @@ class _EmailsPageState extends State<EmailsPage>
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(16.0),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 1.0, horizontal: 16.0),
                           child: Row(
                             children: [
                               Container(
@@ -218,7 +220,8 @@ class _EmailsPageState extends State<EmailsPage>
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(16.0),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 1.0, horizontal: 16.0),
                           child: Row(
                             children: [
                               Container(
@@ -241,7 +244,8 @@ class _EmailsPageState extends State<EmailsPage>
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(16.0),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 1.0, horizontal: 16.0),
                           child: Row(
                             children: [
                               Container(
@@ -264,7 +268,8 @@ class _EmailsPageState extends State<EmailsPage>
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(16.0),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 1.0, horizontal: 16.0),
                           child: Row(
                             children: [
                               Container(
@@ -287,7 +292,8 @@ class _EmailsPageState extends State<EmailsPage>
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(16.0),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 1.0, horizontal: 16.0),
                           child: Row(
                             children: [
                               Container(
@@ -308,7 +314,31 @@ class _EmailsPageState extends State<EmailsPage>
                               )
                             ],
                           ),
-                        )
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 1.0, horizontal: 16.0),
+                          child: Row(
+                            children: [
+                              Container(
+                                  height: 50,
+                                  width: 50,
+                                  decoration: BoxDecoration(
+                                    color: Colors.black.withOpacity(0.08),
+                                    shape: BoxShape.circle,
+                                  )),
+                              const SizedBox(width: 8),
+                              const Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Skeleton(width: 260),
+                                  SizedBox(height: 4),
+                                  Skeleton(width: 190, height: 12)
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
