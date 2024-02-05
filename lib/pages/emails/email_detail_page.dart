@@ -118,12 +118,12 @@ class _EmailDetailPageState extends State<EmailDetailPage> {
                   SizedBox(
                     width: MediaQuery.of(context).size.width - 200,
                     child: Text(
-                      widget.email.replyTo,
+                      extractNameFromEmail(widget.email.replyTo),
                       maxLines: 2,
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
-                        fontSize: 12,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -139,7 +139,7 @@ class _EmailDetailPageState extends State<EmailDetailPage> {
                     borderRadius: BorderRadius.circular(
                         16.0), // Optional: Set border radius
                   ),
-                  padding: const EdgeInsets.all(8.0), // Optional: Set padding
+                  padding: const EdgeInsets.all(12.0), // Optional: Set padding
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
