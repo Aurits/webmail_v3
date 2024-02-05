@@ -62,7 +62,7 @@ class EmailDetailPage extends StatelessWidget {
                 Navigator.pop(context);
               },
               child: const Text(
-                'Back to Inbox',
+                'Back ',
                 style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
@@ -70,17 +70,6 @@ class EmailDetailPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            Center(
-              child: Text(
-                email.subject,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
 
             ExpansionTile(
               iconColor: Colors.green,
@@ -162,6 +151,17 @@ class EmailDetailPage extends StatelessWidget {
               },
             ),
             const SizedBox(height: 16),
+            Center(
+              child: Text(
+                email.subject,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
             HtmlWidget(
               // the first parameter (`html`) is required
               email.message,
