@@ -87,7 +87,7 @@ class _EmailsPageState extends State<EmailsPage>
         margin: const EdgeInsets.all(10),
         child: FloatingActionButton(
           heroTag: "fab1",
-          backgroundColor: Colors.teal[500],
+          backgroundColor: Colors.green[500],
           onPressed: () {
             print("Pressed");
           },
@@ -234,7 +234,7 @@ class _EmailsPageState extends State<EmailsPage>
                         },
                         child: Icon(
                           Icons.apps,
-                          color: Colors.teal[600],
+                          color: Colors.green[600],
                         ),
                       ),
                     ),
@@ -248,7 +248,7 @@ class _EmailsPageState extends State<EmailsPage>
                         },
                         child: Icon(
                           Icons.settings,
-                          color: Colors.teal[600],
+                          color: Colors.green[600],
                         ),
                       ),
                     ),
@@ -275,12 +275,12 @@ class _EmailsPageState extends State<EmailsPage>
                 ListTile(
                   leading: const Icon(
                     Icons.inbox,
-                    color: Colors.teal,
+                    color: Colors.green,
                   ),
                   title: const Text(
                     'Inbox',
                     style: TextStyle(
-                      color: Colors.teal,
+                      color: Colors.green,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -291,12 +291,12 @@ class _EmailsPageState extends State<EmailsPage>
                 ListTile(
                   leading: const Icon(
                     Icons.star,
-                    color: Colors.teal,
+                    color: Colors.green,
                   ),
                   title: const Text(
                     'Starred',
                     style: TextStyle(
-                      color: Colors.teal,
+                      color: Colors.green,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -307,12 +307,12 @@ class _EmailsPageState extends State<EmailsPage>
                 ListTile(
                     leading: const Icon(
                       Icons.send,
-                      color: Colors.teal,
+                      color: Colors.green,
                     ),
                     title: const Text(
                       'Sent',
                       style: TextStyle(
-                        color: Colors.teal,
+                        color: Colors.green,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -322,12 +322,12 @@ class _EmailsPageState extends State<EmailsPage>
                 ListTile(
                     leading: const Icon(
                       Icons.drafts,
-                      color: Colors.teal,
+                      color: Colors.green,
                     ),
                     title: const Text(
                       'Drafts',
                       style: TextStyle(
-                        color: Colors.teal,
+                        color: Colors.green,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -337,12 +337,12 @@ class _EmailsPageState extends State<EmailsPage>
                 ListTile(
                     leading: const Icon(
                       Icons.delete,
-                      color: Colors.teal,
+                      color: Colors.green,
                     ),
                     title: const Text(
                       'Trash',
                       style: TextStyle(
-                        color: Colors.teal,
+                        color: Colors.green,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -352,12 +352,12 @@ class _EmailsPageState extends State<EmailsPage>
                 ListTile(
                     leading: const Icon(
                       Icons.archive,
-                      color: Colors.teal,
+                      color: Colors.green,
                     ),
                     title: const Text(
                       'Archive',
                       style: TextStyle(
-                        color: Colors.teal,
+                        color: Colors.green,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -367,12 +367,12 @@ class _EmailsPageState extends State<EmailsPage>
                 ListTile(
                     leading: const Icon(
                       Icons.settings,
-                      color: Colors.teal,
+                      color: Colors.green,
                     ),
                     title: const Text(
                       'Settings',
                       style: TextStyle(
-                        color: Colors.teal,
+                        color: Colors.green,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
