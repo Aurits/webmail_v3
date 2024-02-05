@@ -23,7 +23,7 @@ class _EmailDetailPageState extends State<EmailDetailPage> {
   // Add a variable to track the expansion state
   bool isExpanded = false;
 
-  late String username;
+  late String username = "";
 
   @override
   void initState() {
