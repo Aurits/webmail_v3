@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:webmail/pages/emails/skelton.dart';
+
 import '../../adapters/email_adapter.dart';
 import '../../models/mail.dart';
 import '../../models/user.dart';
@@ -170,22 +172,23 @@ class _EmailsPageState extends State<EmailsPage>
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         //tell the user what is going on in the background
-                        Text(
-                          "Fetching emails...",
-                          style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.green),
-                        ),
-                        SizedBox(height: 30),
-                        Text("This may take a while...",
-                            style:
-                                TextStyle(color: Colors.black, fontSize: 15)),
-                        SizedBox(height: 30),
-                        CircularProgressIndicator(
-                          backgroundColor: Colors.red,
-                          color: Colors.white,
-                        ),
+                        Skeleton(width: 80),
+                        SizedBox(height: 16 / 2),
+                        Skeleton(),
+                        SizedBox(height: 16 / 2),
+                        Skeleton(),
+                        SizedBox(height: 16 / 2),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Skeleton(),
+                            ),
+                            SizedBox(width: 16),
+                            Expanded(
+                              child: Skeleton(),
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ),
