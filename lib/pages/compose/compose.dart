@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: prefer_const_constructors, avoid_print
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ import '../../utils/database.dart';
 import '../../widgets/drawer.dart';
 
 class ComposeEmail extends StatefulWidget {
-  const ComposeEmail({super.key});
+  const ComposeEmail({Key? key}) : super(key: key);
 
   @override
   State<ComposeEmail> createState() => _ComposeEmailState();
@@ -22,6 +22,10 @@ class _ComposeEmailState extends State<ComposeEmail> {
   final TextEditingController subjectController = TextEditingController();
   final TextEditingController messageController = TextEditingController();
 
+  late String username = "";
+  late String password = "";
+  bool isLoading = false; // Variable to manage loading state
+
   @override
   void dispose() {
     // Clean up the controllers when the widget is disposed
@@ -30,9 +34,6 @@ class _ComposeEmailState extends State<ComposeEmail> {
     messageController.dispose();
     super.dispose();
   }
-
-  late String username = "";
-  late String password = "";
 
   @override
   void initState() {
@@ -168,6 +169,9 @@ class _ComposeEmailState extends State<ComposeEmail> {
                     onPressed: () async {
                       // Validate fields
                       if (_validateFields()) {
+                        setState(() {
+                          isLoading = true; // Show loading indicator
+                        });
                         // Create a Dio instance
                         Dio dio = Dio();
                         try {
@@ -216,14 +220,18 @@ class _ComposeEmailState extends State<ComposeEmail> {
                         } catch (e) {
                           // Handle errors
                           print('Error: $e');
+                        } finally {
+                          setState(() {
+                            isLoading = false; // Hide loading indicator
+                          });
                         }
                       }
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green, // Change button color
                     ),
-                    child: const Text(
-                      'Send',
+                    child: Text(
+                      isLoading ? 'Sending...' : 'Send',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
