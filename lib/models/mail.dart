@@ -209,7 +209,7 @@ class Mail {
                             date TEXT,
                             subject TEXT,
                             message TEXT,
-                            attachments TEXT
+                            attachments TEXT,
                             status TEXT
                           )
                         ''');
