@@ -172,7 +172,7 @@ class _ComposeEmailState extends State<ComposeEmail> {
                         Dio dio = Dio();
                         try {
                           // Send the POST request
-                          Response response = await dio.post(
+                          Response response = await dio.get(
                             'https://webmail-40d593e3-df80-433a-9a97.cranecloud.io/api/send-email', // Replace with your API endpoint
                             data: {
                               "to": toController.text,
