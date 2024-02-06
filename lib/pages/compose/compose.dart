@@ -1,6 +1,11 @@
+// ignore_for_file: avoid_print
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:sqflite/sqflite.dart';
 
+import '../../utils/database.dart';
 import '../../widgets/drawer.dart';
 
 class ComposeEmail extends StatefulWidget {
@@ -11,6 +16,46 @@ class ComposeEmail extends StatefulWidget {
 }
 
 class _ComposeEmailState extends State<ComposeEmail> {
+  // Define controllers for text fields
+  final TextEditingController toController = TextEditingController();
+  final TextEditingController subjectController = TextEditingController();
+  final TextEditingController messageController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controllers when the widget is disposed
+    toController.dispose();
+    subjectController.dispose();
+    messageController.dispose();
+    super.dispose();
+  }
+
+  late String username = "";
+  late String password = "";
+
+  @override
+  void initState() {
+    super.initState();
+    getUserDetails();
+  }
+
+  Future<void> getUserDetails() async {
+    Database db = await Utils.init();
+    List<Map<String, dynamic>> user = await db.query('usersTable');
+
+    if (user.isNotEmpty) {
+      setState(() {
+        username = user[0]['username'];
+        password = user[0]['password'];
+      });
+    } else {
+      setState(() {
+        username = 'No user found';
+        password = 'No password found';
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,6 +95,7 @@ class _ComposeEmailState extends State<ComposeEmail> {
               ),
               const SizedBox(height: 10),
               TextFormField(
+                controller: toController, // Assign controller
                 style: const TextStyle(fontSize: 16),
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(
@@ -71,6 +117,7 @@ class _ComposeEmailState extends State<ComposeEmail> {
               ),
               const SizedBox(height: 10),
               TextFormField(
+                controller: subjectController, // Assign controller
                 style: const TextStyle(fontSize: 16),
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(
@@ -91,6 +138,7 @@ class _ComposeEmailState extends State<ComposeEmail> {
               ),
               const SizedBox(height: 10),
               TextFormField(
+                controller: messageController, // Assign controller
                 style: const TextStyle(fontSize: 16),
                 maxLines: 7,
                 decoration: const InputDecoration(
@@ -116,7 +164,46 @@ class _ComposeEmailState extends State<ComposeEmail> {
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      // Validate fields
+                      if (_validateFields()) {
+                        // Create a Dio instance
+                        Dio dio = Dio();
+                        try {
+                          // Send the POST request
+                          Response response = await dio.post(
+                            'https://webmail-40d593e3-df80-433a-9a97.cranecloud.io/api/send-email', // Replace with your API endpoint
+                            data: {
+                              "to": toController.text,
+                              "subject": subjectController.text,
+                              "message": messageController.text,
+                              "from_email": username,
+                              "from_name": "John Doe",
+                              "smtp_username": username,
+                              "smtp_password": password,
+                            },
+                            options: Options(
+                              headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': '*/*',
+                              },
+                            ),
+                          );
+
+                          // Check if the request was successful
+                          if (response.statusCode == 200) {
+                            // Handle success
+                            print('Email sent successfully');
+                          } else {
+                            // Handle other status codes
+                            print('Failed to send email');
+                          }
+                        } catch (e) {
+                          // Handle errors
+                          print('Error: $e');
+                        }
+                      }
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green, // Change button color
                     ),
@@ -132,5 +219,16 @@ class _ComposeEmailState extends State<ComposeEmail> {
         ),
       ),
     );
+  }
+
+  // Method to validate fields
+  bool _validateFields() {
+    if (toController.text.isEmpty ||
+        subjectController.text.isEmpty ||
+        messageController.text.isEmpty) {
+      // Display error message or toast indicating required fields
+      return false;
+    }
+    return true;
   }
 }
