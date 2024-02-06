@@ -44,6 +44,15 @@ class ItemTile extends StatefulWidget {
 class _ItemTileState extends State<ItemTile> {
   @override
   Widget build(BuildContext context) {
+    Color avatarColor = _getAvatarColor(widget.object.replyTo);
+    Color textColor = Colors.black; // Default text color
+
+    if (widget.object.status == "seen") {
+      // Reduce opacity for seen emails
+      avatarColor = avatarColor.withOpacity(0.5);
+      textColor = textColor.withOpacity(0.5);
+    }
+
     return InkWell(
       onTap: () {
         widget.onClick(widget.index, widget.object);
