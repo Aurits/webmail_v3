@@ -3,6 +3,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../../utils/database.dart';
@@ -171,7 +172,7 @@ class _ComposeEmailState extends State<ComposeEmail> {
                         Dio dio = Dio();
                         try {
                           // Send the POST request
-                          Response response = await dio.get(
+                          Response response = await dio.post(
                             'https://webmail-40d593e3-df80-433a-9a97.cranecloud.io/api/send-email', // Replace with your API endpoint
                             data: {
                               "to": toController.text,
@@ -194,6 +195,20 @@ class _ComposeEmailState extends State<ComposeEmail> {
                           if (response.statusCode == 200) {
                             // Handle success
                             print('Email sent successfully');
+                            // Clear text fields
+                            toController.clear();
+                            subjectController.clear();
+                            messageController.clear();
+                            // Display toast message
+                            Fluttertoast.showToast(
+                              msg: "Email sent successfully",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM,
+                              timeInSecForIosWeb: 1,
+                              backgroundColor: Colors.green,
+                              textColor: Colors.white,
+                              fontSize: 16.0,
+                            );
                           } else {
                             // Handle other status codes
                             print('Failed to send email');
