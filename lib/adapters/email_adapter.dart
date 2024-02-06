@@ -95,14 +95,19 @@ class _ItemTileState extends State<ItemTile> {
                       widget.object.replyTo,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontWeight: FontWeight.bold,
+                        color: textColor,
                       ),
                     ),
                     subtitle: Text(
                       widget.object.subject,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                        color: textColor,
+                      ),
                     ),
                     trailing: SizedBox(
                       width: 35,
