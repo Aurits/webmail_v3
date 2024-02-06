@@ -222,7 +222,8 @@ class _EmailDetailPageState extends State<EmailDetailPage> {
             const SizedBox(height: 26),
             Center(
               child: Text(
-                widget.email.subject,
+                widget.email.subject ??
+                    'No Subject', // Provide a default value if subject is null
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 20,
