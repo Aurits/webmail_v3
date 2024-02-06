@@ -2,6 +2,7 @@
 
 import 'package:dio/dio.dart';
 import 'package:sqflite/sqflite.dart';
+
 import '../utils/database.dart';
 import 'user.dart';
 
@@ -14,6 +15,7 @@ class Mail {
   String subject;
   String message;
   String attachments;
+  String? status;
 
   Mail({
     required this.id,
@@ -24,6 +26,7 @@ class Mail {
     required this.subject,
     required this.message,
     required this.attachments,
+    required this.status,
   });
 
   factory Mail.fromJson(Map<String, dynamic> json) {
@@ -36,6 +39,7 @@ class Mail {
       subject: json['subject'] ?? '',
       message: json['message'] ?? '',
       attachments: json['attachments'] ?? '',
+      status: json['status'] ?? '',
     );
   }
 
@@ -49,6 +53,7 @@ class Mail {
       'subject': subject,
       'message': message,
       'attachments': attachments,
+      'status': status,
     };
   }
 
@@ -205,6 +210,7 @@ class Mail {
                             subject TEXT,
                             message TEXT,
                             attachments TEXT
+                            status TEXT
                           )
                         ''');
 
