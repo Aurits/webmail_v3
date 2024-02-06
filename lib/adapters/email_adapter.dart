@@ -70,7 +70,7 @@ class _ItemTileState extends State<ItemTile> {
               width: 50,
               height: 50,
               child: CircleAvatar(
-                backgroundColor: _getAvatarColor(widget.object.replyTo),
+                backgroundColor: avatarColor,
                 child: Text(
                   widget.object.replyTo.isNotEmpty
                       ? widget.object.replyTo[0].toUpperCase()
