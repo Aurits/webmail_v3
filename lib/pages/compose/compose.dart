@@ -178,7 +178,7 @@ class _ComposeEmailState extends State<ComposeEmail> {
                               "subject": subjectController.text,
                               "message": messageController.text,
                               "from_email": username,
-                              "from_name": "John Doe",
+                              "from_name": username,
                               "smtp_username": username,
                               "smtp_password": password,
                             },
