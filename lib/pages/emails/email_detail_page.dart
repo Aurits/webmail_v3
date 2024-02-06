@@ -4,6 +4,7 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:webmail/utils/database.dart';
 
@@ -230,56 +231,53 @@ class _EmailDetailPageState extends State<EmailDetailPage> {
               ),
             ),
             const SizedBox(height: 14),
-            // HtmlWidget(
-            //     // the first parameter (`html`) is required
+            HtmlWidget(
+              // the first parameter (`html`) is required
+              widget.email.message,
 
-            //     // widget.email.message,
+              // all other parameters are optional, a few notable params:
 
-            //     'dshfgd'
+              // specify custom styling for an element
+              // see supported inline styling below
+              // customStylesBuilder: (element) {
+              //   if (element.classes.contains('foo')) {
+              //     return {'color': 'red'};
+              //   }
 
-            //     // all other parameters are optional, a few notable params:
+              //   return null;
+              // },
 
-            //     // specify custom styling for an element
-            //     // see supported inline styling below
-            //     // customStylesBuilder: (element) {
-            //     //   if (element.classes.contains('foo')) {
-            //     //     return {'color': 'red'};
-            //     //   }
+              // customWidgetBuilder: (element) {
+              //   if (element.attributes['foo'] == 'bar') {
+              //     // render a custom block widget that takes the full width
+              //     return Container();
+              //   }
 
-            //     //   return null;
-            //     // },
+              //   if (element.attributes['fizz'] == 'buzz') {
+              //     // render a custom widget inline with surrounding text
+              //     return InlineCustomWidget(
+              //       child: Container(),
+              //     );
+              //   }
 
-            //     // customWidgetBuilder: (element) {
-            //     //   if (element.attributes['foo'] == 'bar') {
-            //     //     // render a custom block widget that takes the full width
-            //     //     return Container();
-            //     //   }
+              //   return null;
+              // },
 
-            //     //   if (element.attributes['fizz'] == 'buzz') {
-            //     //     // render a custom widget inline with surrounding text
-            //     //     return InlineCustomWidget(
-            //     //       child: Container(),
-            //     //     );
-            //     //   }
+              // // this callback will be triggered when user taps a link
+              // onTapUrl: (url) {
+              //   print('tapped url');
+              //   return true;
+              // },
 
-            //     //   return null;
-            //     // },
+              // // select the render mode for HTML body
+              // // by default, a simple `Column` is rendered
+              // // consider using `ListView` or `SliverList` for better performance
+              // renderMode: RenderMode.column,
 
-            //     // // this callback will be triggered when user taps a link
-            //     // onTapUrl: (url) {
-            //     //   print('tapped url');
-            //     //   return true;
-            //     // },
-
-            //     // // select the render mode for HTML body
-            //     // // by default, a simple `Column` is rendered
-            //     // // consider using `ListView` or `SliverList` for better performance
-            //     // renderMode: RenderMode.column,
-
-            //     // set the default styling for text
-            //     //   textStyle: const TextStyle(fontSize: 14),
-            //     ),
-            // const SizedBox(height: 16),
+              // set the default styling for text
+              //   textStyle: const TextStyle(fontSize: 14),
+            ),
+            const SizedBox(height: 16),
             if (widget.email.attachments.isNotEmpty)
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -330,18 +328,20 @@ class _EmailDetailPageState extends State<EmailDetailPage> {
     RegExp emailRegex = RegExp(r'<([^>]+)>');
     Match? match = emailRegex.firstMatch(content);
     if (match != null) {
-      return match.group(1) ??
-          ''; // Provide a default value if match.group(1) is null
+      return match.group(1)!;
     } else {
       return '';
     }
   }
 
   String extractNameFromEmail(String email) {
+    // Find the index of "<" character
     int index = email.indexOf('<');
     if (index != -1) {
+      // Extract the substring before "<"
       return email.substring(0, index).trim();
     } else {
+      // If "<" character is not found, return the original email
       return email;
     }
   }
