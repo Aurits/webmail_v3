@@ -277,22 +277,22 @@ class _EmailDetailPageState extends State<EmailDetailPage> {
               // set the default styling for text
               //   textStyle: const TextStyle(fontSize: 14),
             ),
-            const SizedBox(height: 16),
-            if (widget.email.attachments.isNotEmpty)
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Attachments:',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(widget.email.attachments),
-                ],
-              ),
+            // const SizedBox(height: 16),
+            // if (widget.email.attachments.isNotEmpty)
+            //   Column(
+            //     crossAxisAlignment: CrossAxisAlignment.start,
+            //     children: [
+            //       const Text(
+            //         'Attachments:',
+            //         style: TextStyle(
+            //           fontSize: 18,
+            //           fontWeight: FontWeight.bold,
+            //         ),
+            //       ),
+            //       const SizedBox(height: 8),
+            //       Text(widget.email.attachments),
+            //     ],
+            //   ),
             const SizedBox(height: 32),
             Container(
               width: double.infinity,
