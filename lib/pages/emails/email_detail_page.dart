@@ -4,6 +4,7 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:webmail/utils/database.dart';
 
@@ -87,225 +88,225 @@ class _EmailDetailPageState extends State<EmailDetailPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ExpansionTile(
-            //   iconColor: Colors.green,
-            //   shape: Border.all(color: Colors.white), // Set the green border
-            //   collapsedIconColor: Colors.red,
-            //   collapsedShape: RoundedRectangleBorder(
-            //     borderRadius: BorderRadius.circular(16.0),
-            //   ),
-            //   title: Row(
-            //     children: [
-            //       SizedBox(
-            //         width: 50,
-            //         height: 50,
-            //         child: CircleAvatar(
-            //           backgroundColor: _getAvatarColor(widget.email.replyTo),
-            //           child: Text(
-            //             widget.email.replyTo.isNotEmpty
-            //                 ? widget.email.replyTo[0].toUpperCase()
-            //                 : '?', // Display '?' if replyTo is empty
-            //             style: const TextStyle(
-            //               color: Colors.white,
-            //               fontWeight: FontWeight.bold,
-            //               fontSize: 18,
-            //             ),
-            //           ),
-            //         ),
-            //       ),
-            //       const SizedBox(width: 8),
-            //       SizedBox(
-            //         width: MediaQuery.of(context).size.width - 200,
-            //         child: Text(
-            //           extractNameFromEmail(widget.email.replyTo),
-            //           maxLines: 2,
-            //           textAlign: TextAlign.center,
-            //           overflow: TextOverflow.ellipsis,
-            //           style: const TextStyle(
-            //             fontSize: 14,
-            //             fontWeight: FontWeight.bold,
-            //           ),
-            //         ),
-            //       ),
-            //       const SizedBox(width: 8),
-            //     ],
-            //   ),
-            //   children: [
-            //     Container(
-            //       decoration: BoxDecoration(
-            //         border:
-            //             Border.all(color: Colors.black), // Set the green border
-            //         borderRadius: BorderRadius.circular(
-            //             16.0), // Optional: Set border radius
-            //       ),
-            //       padding: const EdgeInsets.all(12.0), // Optional: Set padding
-            //       child: Column(
-            //         crossAxisAlignment: CrossAxisAlignment.stretch,
-            //         children: [
-            //           const SizedBox(height: 10),
-            //           RichText(
-            //             text: TextSpan(
-            //               children: [
-            //                 const TextSpan(
-            //                   text: 'From: ',
-            //                   style: TextStyle(
-            //                     fontSize: 14,
-            //                     fontWeight: FontWeight.bold,
-            //                     color: Colors.black,
-            //                   ),
-            //                 ),
-            //                 TextSpan(
-            //                   text: extractEmail(widget.email.replyTo),
-            //                   style: const TextStyle(
-            //                     fontSize: 12,
-            //                     color: Colors.black,
-            //                   ),
-            //                 ),
-            //               ],
-            //             ),
-            //           ),
-            //           const SizedBox(height: 8),
-            //           RichText(
-            //             text: TextSpan(
-            //               children: [
-            //                 const TextSpan(
-            //                   text: 'To: ',
-            //                   style: TextStyle(
-            //                     fontSize: 14,
-            //                     fontWeight: FontWeight.bold,
-            //                     color: Colors.black,
-            //                   ),
-            //                 ),
-            //                 TextSpan(
-            //                   text: username,
-            //                   style: const TextStyle(
-            //                     fontSize: 12,
-            //                     color: Colors.black,
-            //                   ),
-            //                 ),
-            //               ],
-            //             ),
-            //           ),
-            //           const SizedBox(height: 8),
-            //           RichText(
-            //             text: TextSpan(
-            //               children: [
-            //                 const TextSpan(
-            //                   text: 'Date: ',
-            //                   style: TextStyle(
-            //                     fontSize: 14,
-            //                     fontWeight: FontWeight.bold,
-            //                     color: Colors.black,
-            //                   ),
-            //                 ),
-            //                 TextSpan(
-            //                   text: '${widget.email.date},',
-            //                   style: const TextStyle(
-            //                     fontSize: 12,
-            //                     fontWeight: FontWeight.bold,
-            //                     color: Colors.redAccent,
-            //                   ),
-            //                 ),
-            //               ],
-            //             ),
-            //           ),
-            //           const SizedBox(height: 10),
-            //         ],
-            //       ),
-            //     ),
-            //   ],
-            //   onExpansionChanged: (bool expanded) {
-            //     // Handle expansion state if needed
-            //   },
-            // ),
-            // const SizedBox(height: 26),
-            // Center(
-            //   child: Text(
-            //     widget.email.subject,
-            //     textAlign: TextAlign.center,
-            //     style: const TextStyle(
-            //       fontSize: 20,
-            //       fontWeight: FontWeight.bold,
-            //     ),
-            //   ),
-            // ),
-            // const SizedBox(height: 14),
-            // HtmlWidget(
-            //   // the first parameter (`html`) is required
-            //   widget.email.message,
+            ExpansionTile(
+              iconColor: Colors.green,
+              shape: Border.all(color: Colors.white), // Set the green border
+              collapsedIconColor: Colors.red,
+              collapsedShape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16.0),
+              ),
+              title: Row(
+                children: [
+                  SizedBox(
+                    width: 50,
+                    height: 50,
+                    child: CircleAvatar(
+                      backgroundColor: _getAvatarColor(widget.email.replyTo),
+                      child: Text(
+                        widget.email.replyTo.isNotEmpty
+                            ? widget.email.replyTo[0].toUpperCase()
+                            : '?', // Display '?' if replyTo is empty
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width - 200,
+                    child: Text(
+                      extractNameFromEmail(widget.email.replyTo),
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                ],
+              ),
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    border:
+                        Border.all(color: Colors.black), // Set the green border
+                    borderRadius: BorderRadius.circular(
+                        16.0), // Optional: Set border radius
+                  ),
+                  padding: const EdgeInsets.all(12.0), // Optional: Set padding
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      const SizedBox(height: 10),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            const TextSpan(
+                              text: 'From: ',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                            TextSpan(
+                              text: extractEmail(widget.email.replyTo),
+                              style: const TextStyle(
+                                fontSize: 12,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            const TextSpan(
+                              text: 'To: ',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                            TextSpan(
+                              text: username,
+                              style: const TextStyle(
+                                fontSize: 12,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            const TextSpan(
+                              text: 'Date: ',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                            TextSpan(
+                              text: '${widget.email.date},',
+                              style: const TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.redAccent,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                    ],
+                  ),
+                ),
+              ],
+              onExpansionChanged: (bool expanded) {
+                // Handle expansion state if needed
+              },
+            ),
+            const SizedBox(height: 26),
+            Center(
+              child: Text(
+                widget.email.subject,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const SizedBox(height: 14),
+            HtmlWidget(
+              // the first parameter (`html`) is required
+              widget.email.message,
 
-            //   // all other parameters are optional, a few notable params:
+              // all other parameters are optional, a few notable params:
 
-            //   // specify custom styling for an element
-            //   // see supported inline styling below
-            //   // customStylesBuilder: (element) {
-            //   //   if (element.classes.contains('foo')) {
-            //   //     return {'color': 'red'};
-            //   //   }
+              // specify custom styling for an element
+              // see supported inline styling below
+              // customStylesBuilder: (element) {
+              //   if (element.classes.contains('foo')) {
+              //     return {'color': 'red'};
+              //   }
 
-            //   //   return null;
-            //   // },
+              //   return null;
+              // },
 
-            //   // customWidgetBuilder: (element) {
-            //   //   if (element.attributes['foo'] == 'bar') {
-            //   //     // render a custom block widget that takes the full width
-            //   //     return Container();
-            //   //   }
+              // customWidgetBuilder: (element) {
+              //   if (element.attributes['foo'] == 'bar') {
+              //     // render a custom block widget that takes the full width
+              //     return Container();
+              //   }
 
-            //   //   if (element.attributes['fizz'] == 'buzz') {
-            //   //     // render a custom widget inline with surrounding text
-            //   //     return InlineCustomWidget(
-            //   //       child: Container(),
-            //   //     );
-            //   //   }
+              //   if (element.attributes['fizz'] == 'buzz') {
+              //     // render a custom widget inline with surrounding text
+              //     return InlineCustomWidget(
+              //       child: Container(),
+              //     );
+              //   }
 
-            //   //   return null;
-            //   // },
+              //   return null;
+              // },
 
-            //   // // this callback will be triggered when user taps a link
-            //   // onTapUrl: (url) {
-            //   //   print('tapped url');
-            //   //   return true;
-            //   // },
+              // // this callback will be triggered when user taps a link
+              // onTapUrl: (url) {
+              //   print('tapped url');
+              //   return true;
+              // },
 
-            //   // // select the render mode for HTML body
-            //   // // by default, a simple `Column` is rendered
-            //   // // consider using `ListView` or `SliverList` for better performance
-            //   // renderMode: RenderMode.column,
+              // // select the render mode for HTML body
+              // // by default, a simple `Column` is rendered
+              // // consider using `ListView` or `SliverList` for better performance
+              // renderMode: RenderMode.column,
 
-            //   // set the default styling for text
-            //   //   textStyle: const TextStyle(fontSize: 14),
-            // ),
-            // const SizedBox(height: 16),
-            // if (widget.email.attachments.isNotEmpty)
-            //   Column(
-            //     crossAxisAlignment: CrossAxisAlignment.start,
-            //     children: [
-            //       const Text(
-            //         'Attachments:',
-            //         style: TextStyle(
-            //           fontSize: 18,
-            //           fontWeight: FontWeight.bold,
-            //         ),
-            //       ),
-            //       const SizedBox(height: 8),
-            //       Text(widget.email.attachments),
-            //     ],
-            //   ),
-            // const SizedBox(height: 32),
-            // Container(
-            //   width: double.infinity,
-            //   alignment: Alignment.center,
-            //   padding: const EdgeInsets.symmetric(vertical: 16),
-            //   color: Colors.grey[200],
-            //   child: Text(
-            //     'This email is brought to you by Makerere Webmail',
-            //     style: TextStyle(
-            //       color: Colors.grey[600],
-            //       fontStyle: FontStyle.italic,
-            //     ),
-            //   ),
-            // ),
+              // set the default styling for text
+              //   textStyle: const TextStyle(fontSize: 14),
+            ),
+            const SizedBox(height: 16),
+            if (widget.email.attachments.isNotEmpty)
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Attachments:',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(widget.email.attachments),
+                ],
+              ),
+            const SizedBox(height: 32),
+            Container(
+              width: double.infinity,
+              alignment: Alignment.center,
+              padding: const EdgeInsets.symmetric(vertical: 16),
+              color: Colors.grey[200],
+              child: Text(
+                'This email is brought to you by Makerere Webmail',
+                style: TextStyle(
+                  color: Colors.grey[600],
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            ),
           ],
         ),
       ),
