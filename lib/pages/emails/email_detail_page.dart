@@ -233,7 +233,7 @@ class _EmailDetailPageState extends State<EmailDetailPage> {
             const SizedBox(height: 14),
             HtmlWidget(
               // the first parameter (`html`) is required
-              widget.email.message,
+              widget.email.message ?? "",
 
               // all other parameters are optional, a few notable params:
 
