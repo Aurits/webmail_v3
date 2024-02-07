@@ -294,19 +294,19 @@ class _EmailDetailPageState extends State<EmailDetailPage> {
             //     ],
             //   ),
             const SizedBox(height: 32),
-            Container(
-              width: double.infinity,
-              alignment: Alignment.center,
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              color: Colors.grey[200],
-              child: Text(
-                'This email is brought to you by Makerere Webmail',
-                style: TextStyle(
-                  color: Colors.grey[600],
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
-            ),
+            // Container(
+            //   width: double.infinity,
+            //   alignment: Alignment.center,
+            //   padding: const EdgeInsets.symmetric(vertical: 16),
+            //   color: Colors.grey[200],
+            //   child: Text(
+            //     'This email is brought to you by Makerere Webmail',
+            //     style: TextStyle(
+            //       color: Colors.grey[600],
+            //       fontStyle: FontStyle.italic,
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
