@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print, unnecessary_null_comparison
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -66,7 +67,6 @@ class Mail {
       emails = await getLocalEmails();
     } else {
       print("Fetching online emails for refresh...");
-
       emails = await getLocalEmails();
     }
     print(emails);
@@ -94,6 +94,12 @@ class Mail {
     final dio = Dio();
 
     try {
+      var connectivityResult = await Connectivity().checkConnectivity();
+      if (connectivityResult == ConnectivityResult.none) {
+        // Handle the case when there is no connectivity
+        print("No internet connection available");
+        return;
+      }
       // Retrieve user details from the local database
       User? user = await getUserDetails();
 
