@@ -159,13 +159,11 @@ class _ItemTileState extends State<ItemTile> {
 
   // Function to update status in local database
   Future<void> _updateStatusInDatabase(Mail mail) async {
-    // Implement your database update logic here
-    // For example, you can use sqflite to update the status
     // Open the database
     Database db = await Utils.init();
     // Update the status in the database
     await db.update(
-      'emailsTable',
+      'emailTable',
       {'status': 'seen'},
       where: 'id = ?',
       whereArgs: [mail.id],
