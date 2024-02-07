@@ -156,7 +156,7 @@ class _EmailDetailPageState extends State<EmailDetailPage> {
                               ),
                             ),
                             TextSpan(
-                              text: widget.email.replyTo,
+                              text: extractEmail(widget.email.replyTo),
                               style: const TextStyle(
                                 fontSize: 12,
                                 color: Colors.black,
@@ -327,12 +327,18 @@ class _EmailDetailPageState extends State<EmailDetailPage> {
   }
 
   String extractEmail(String content) {
+    // Regular expression to match email addresses enclosed in angle brackets
     RegExp emailRegex = RegExp(r'<([^>]+)>');
+
+    // Attempt to find a match for the email pattern
     Match? match = emailRegex.firstMatch(content);
+
     if (match != null) {
+      // If the match is found (email enclosed in angle brackets), return the extracted email
       return match.group(1)!;
     } else {
-      return '';
+      // If no match is found, assume the input string itself is the email and return it
+      return content.trim(); // Optionally, you can perform additional trimming
     }
   }
 
