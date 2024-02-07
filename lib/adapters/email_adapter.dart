@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:webmail/utils/database.dart';
 
 import '../models/mail.dart';
 
@@ -55,6 +57,11 @@ class _ItemTileState extends State<ItemTile> {
 
     return InkWell(
       onTap: () {
+        // Update status to "seen" when clicked
+        widget.object.status = "seen";
+        // Update status in local database
+        _updateStatusInDatabase(widget.object);
+        // Call the onClick function to handle the click event
         widget.onClick(widget.index, widget.object);
       },
       child: Padding(
@@ -147,6 +154,21 @@ class _ItemTileState extends State<ItemTile> {
           ],
         ),
       ),
+    );
+  }
+
+  // Function to update status in local database
+  Future<void> _updateStatusInDatabase(Mail mail) async {
+    // Implement your database update logic here
+    // For example, you can use sqflite to update the status
+    // Open the database
+    Database db = await Utils.init();
+    // Update the status in the database
+    await db.update(
+      'emailsTable',
+      {'status': 'seen'},
+      where: 'id = ?',
+      whereArgs: [mail.id],
     );
   }
 
