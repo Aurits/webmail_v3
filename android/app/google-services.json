@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "430314973310",
+    "project_id": "webmail-2da62",
+    "storage_bucket": "webmail-2da62.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430314973310:android:3e600144dc8f529e67902f",
+        "android_client_info": {
+          "package_name": "com.example.webmail"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYN1Pc0w2UfDze4v2csZ6nCnv8ShH8adI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
