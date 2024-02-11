@@ -50,7 +50,7 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
 
-       manifestPlaceholders = [appAuthRedirectScheme: 'com.example.app']
+       manifestPlaceholders = [appAuthRedirectScheme: 'firebase-adminsdk-v18tp@webmail-2da62.iam.gserviceaccount.com']
 
 
     }
