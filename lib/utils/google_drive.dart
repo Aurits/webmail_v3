@@ -2,72 +2,56 @@
 
 import 'dart:io';
 
+import 'package:flutter_appauth/flutter_appauth.dart';
 import 'package:googleapis/drive/v3.dart' as drive;
-import 'package:googleapis_auth/auth_io.dart' as auth_io;
-import 'package:googleapis_auth/googleapis_auth.dart' as auth;
 import 'package:http/http.dart' as http;
-import 'package:path/path.dart'; // Import the path package
-import 'package:sqflite/sqflite.dart';
+import 'package:path/path.dart' as path;
 
-// Utils class with a static method to initialize the database
-class Utils {
-  static Future<String> init() async {
-    // Open the database
-    var databasesPath = await getDatabasesPath();
-    String path = join(databasesPath, 'local_db.db');
+class GoogleDriveHelper {
+  final FlutterAppAuth _appAuth = const FlutterAppAuth();
 
-    // Ensure the directory exists
-    await Directory(databasesPath).create(recursive: true);
+  Future<void> authenticateAndUpload(File localDatabaseFile) async {
+    try {
+      final AuthorizationTokenResponse? result =
+          await _appAuth.authorizeAndExchangeCode(
+        AuthorizationTokenRequest(
+          'YOUR_AUTH0_CLIENT_ID',
+          'YOUR_AUTH0_REDIRECT_URI',
+          issuer: 'YOUR_AUTH0_DOMAIN',
+          scopes: ['openid', 'profile', 'email'],
+        ),
+      );
 
-    // Delete the database if it already exists
-    await deleteDatabase(path);
+      final authHeaders = {'Authorization': 'Bearer ${result?.accessToken}'};
+      final googleAuthClient = GoogleAuthClient(authHeaders);
+      final driveApi = drive.DriveApi(googleAuthClient);
 
-    // Create the database
-    var db = await openDatabase(path, version: 1, onCreate: (db, version) {
-      // Create your database schema here
-    });
+      final fileToUpload = drive.File()
+        ..parents = ['appDataFolder']
+        ..name = path.basename(localDatabaseFile.absolute.path);
 
-    return path; // Return the path to the database
+      final response = await driveApi.files.create(
+        fileToUpload,
+        uploadMedia: drive.Media(
+            localDatabaseFile.openRead(), localDatabaseFile.lengthSync()),
+      );
+
+      final fileId = response.id;
+      print('File uploaded successfully. File ID: $fileId');
+    } catch (e) {
+      print('Error uploading database to Google Drive: $e');
+    }
   }
 }
 
-// Function to authenticate with Google Drive
-Future<auth.AutoRefreshingAuthClient> authenticate() async {
-  var credentials = auth.ServiceAccountCredentials.fromJson({
-    // Your service account credentials here
-  });
+class GoogleAuthClient extends http.BaseClient {
+  final Map<String, String> _headers;
+  final http.Client _client = http.Client();
 
-  var scopes = [drive.DriveApi.driveScope];
+  GoogleAuthClient(this._headers);
 
-  var client = await auth_io.clientViaServiceAccount(credentials, scopes);
-
-  return client;
-}
-
-// Function to upload file to Google Drive
-Future<void> uploadFile(
-    auth.AutoRefreshingAuthClient client, String filePath) async {
-  var driveApi = drive.DriveApi(client);
-
-  var file = await driveApi.files.create(
-    drive.File()
-      ..name = 'backup.db', // Change 'backup.db' to your desired file name
-    uploadMedia: drive.Media(
-        http.ByteStream.fromBytes(File(filePath).readAsBytesSync()),
-        File(filePath).lengthSync()),
-  );
-
-  print('File uploaded! ID: ${file.id}');
-}
-
-// Function to backup local database to Google Drive
-Future<void> backupDatabase() async {
-  // Initialize the database and get the path
-  var path = await Utils.init();
-
-  // Authenticate with Google Drive
-  var client = await authenticate();
-
-  // Upload data to Google Drive
-  await uploadFile(client, path);
+  @override
+  Future<http.StreamedResponse> send(http.BaseRequest request) {
+    return _client.send(request..headers.addAll(_headers));
+  }
 }
