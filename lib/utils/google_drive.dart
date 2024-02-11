@@ -15,7 +15,7 @@ class GoogleDriveHelper {
           await _appAuth.authorizeAndExchangeCode(
         AuthorizationTokenRequest(
           '430314973310-jdfm22qbg6scti4u2ai6qofmnhmksl4n.apps.googleusercontent.com',
-          'http://localhost/callback',
+          'com.googleusercontent.apps.430314973310-jdfm22qbg6scti4u2ai6qofmnhmksl4n',
           issuer: 'https://accounts.google.com',
           scopes: ['https://www.googleapis.com/auth/drive.appdata'],
         ),
