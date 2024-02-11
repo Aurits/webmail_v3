@@ -15,10 +15,12 @@ class GoogleDriveHelper {
       final AuthorizationTokenResponse? result =
           await _appAuth.authorizeAndExchangeCode(
         AuthorizationTokenRequest(
-          '430314973310-jdfm22qbg6scti4u2ai6qofmnhmksl4n.apps.googleusercontent.com',
-          'https://accounts.google.com/o/oauth2/auth',
-          issuer: 'YOUR_AUTH0_DOMAIN',
-          scopes: ['openid', 'profile', 'email'],
+          '430314973310-jdfm22qbg6scti4u2ai6qofmnhmksl4n.apps.googleusercontent.com', // Replace with your client ID
+          'http://localhost/callback', // Use a placeholder redirect URI
+          issuer: 'https://accounts.google.com', // Google issuer URL
+          scopes: [
+            'https://www.googleapis.com/auth/drive.appdata'
+          ], // Scope for accessing app data folder
         ),
       );
 
