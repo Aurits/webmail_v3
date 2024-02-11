@@ -1,5 +1,4 @@
 // ignore_for_file: avoid_print
-
 import 'dart:io';
 
 import 'package:flutter_appauth/flutter_appauth.dart';
@@ -15,12 +14,10 @@ class GoogleDriveHelper {
       final AuthorizationTokenResponse? result =
           await _appAuth.authorizeAndExchangeCode(
         AuthorizationTokenRequest(
-          '430314973310-jdfm22qbg6scti4u2ai6qofmnhmksl4n.apps.googleusercontent.com', // Replace with your client ID
-          'http://localhost/callback', // Use a placeholder redirect URI
-          issuer: 'https://accounts.google.com', // Google issuer URL
-          scopes: [
-            'https://www.googleapis.com/auth/drive.appdata'
-          ], // Scope for accessing app data folder
+          '430314973310-jdfm22qbg6scti4u2ai6qofmnhmksl4n.apps.googleusercontent.com',
+          'http://localhost/callback',
+          issuer: 'https://accounts.google.com',
+          scopes: ['https://www.googleapis.com/auth/drive.appdata'],
         ),
       );
 
