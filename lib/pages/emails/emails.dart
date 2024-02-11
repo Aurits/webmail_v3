@@ -129,7 +129,7 @@ class _EmailsPageState extends State<EmailsPage>
 
                     IconButton(
                       icon: const Icon(
-                        Icons.filter_list,
+                        Icons.backup,
                         color: Colors.black,
                       ),
                       onPressed: () {
