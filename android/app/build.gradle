@@ -50,9 +50,7 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
 
-        manifestPlaceholders = [
-            appAuthRedirectScheme: 'com.example.webmail'
-        ]
+       manifestPlaceholders = [appAuthRedirectScheme: 'com.redirectScheme.comm']
   
     }
 
