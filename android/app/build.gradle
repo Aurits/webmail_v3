@@ -49,6 +49,10 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+
+       manifestPlaceholders = [appAuthRedirectScheme: 'urn:ietf:wg:oauth:2.0:oob']
+
+
     }
 
     buildTypes {
