@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:webmail/utils/google_drive.dart';
 
 class Utils {
   static Future<String> getDatabasePath() async {
@@ -18,10 +17,10 @@ class Utils {
     return db;
   }
 
-  void backup() async {
-    final googleDriveHelper = GoogleDriveHelper();
-    final dbPath = await Utils.getDatabasePath();
-    final localDatabaseFile = File(dbPath);
-    await googleDriveHelper.authenticateAndUpload(localDatabaseFile);
-  }
+  // void backup() async {
+  //   final googleDriveHelper = GoogleDriveHelper();
+  //   final dbPath = await Utils.getDatabasePath();
+  //   final localDatabaseFile = File(dbPath);
+  //   await googleDriveHelper.authenticateAndUpload(localDatabaseFile);
+  // }
 }
